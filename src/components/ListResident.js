@@ -7,7 +7,7 @@ const ListResident = ({residents}) => {
 
     const filterResidents =  residents?.slice(current,current + 6)
 
-    const nextPage = () => residents?.length > (current + 5) && setCurrent(current + 6)
+    const nextPage = () => residents?.length > (current + 6) && setCurrent(current + 6)
 
     const prevPage = () => current > 0 && setCurrent(current - 6);
 
