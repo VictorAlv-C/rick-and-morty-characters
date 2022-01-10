@@ -153,7 +153,7 @@ body{
 }
 
 .card-resident-info h4{
-  text-align: center;
+  align-self: center;
   font-weight: 700;
 }
 
