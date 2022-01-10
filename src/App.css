@@ -1,38 +1,240 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200&display=swap');
+body{
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: hsl(180, 70%, 76%);
+}
+
+.App{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 10px;
+}
+
+.header{
+  width: 100%;
+  height: 200px;
+  background-color: hsl(210, 65%, 7%);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+
+.header h1{
+  color: seashell;
+  align-self: center;
+}
+
+.header-img{
+  width: 100%;
+  height: 200px;
+}
+
+.header-img img{
+  width: 100%;
+  height: 100%;
+}
+
+.search{
+  position: relative;
+}
+
+.search input{
+  width: 250px;
+  padding: 5px;
+  outline: none;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: .5rem;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, .5);
+  margin-right: 15px;
+}
+
+.search input:focus{
+  box-shadow: 1px 1px 8px 3px#BB2020;;
+}
+
+.search button{
+  padding: 6px;
+  outline: none;
+  background-color: hsl(220, 13%, 18%);
+  color: seashell;
+  border-radius: 5px;
+}
+
+.sugerency{
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  background-color: hsla(220, 13%, 18%,.85);
+  border-radius: 5px;
+}
+
+.sugerency p{
+  color: hsl(180, 7%, 90%);
+  margin: 5px 0 10px 5px;
+  border-bottom: 1px solid #BEC7C7;
+  cursor: pointer;
+}
+
+.location{
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  background-color:#BB2020;
+  padding: 10px;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, .5);
+  color: hsl(180, 7%, 90%);
+}
+
+.location h2{
+  justify-self: center;
+}
+
+.location-info{
+  display: flex;
+  justify-content: space-between;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.residents{
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-resident{
+  justify-self: center;
+  width: 90%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+  background-color: #fff;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card-resident-head{
+  position: relative;
+}
+
+.card-resident-head img{
+  width: 100%;
+  height: 100%  
+}
+
+.card-resident-info{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
+  align-items: flex-start;
+  color: hsl(210, 65%, 7%);;
 }
 
-.App-link {
-  color: #61dafb;
+.card-resident-info p{
+  color: hsl(180, 7%, 50%);
+  font-size: .8rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card-resident-info b{
+  color: hsl(210, 65%, 7%);
+}
+
+.card-resident-info h4{
+  text-align: center;
+  font-weight: 700;
+}
+
+.pagination{
+  display: flex;
+  gap: 5px;
+}
+
+.pagination button{
+  padding: 0 5px;
+  background-color:#BB2020;
+  color: hsl(180, 7%, 90%);
+  outline: none;
+}
+
+@media only screen and (min-width: 805px) {
+  .header h1{
+    font-size: 2.5rem;
+    letter-spacing: 2px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .header-img{
+   display: flex;
+   justify-content: center;
+  }
+  
+  .header-img img{
+    width: 50%;
+  }
+
+  .residents{
+    grid-template-columns: 1fr 1fr;
+   }
+  .location-info{
+    justify-content: space-around; 
+    }
+  
+  .search input{
+      width: 350px;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+  .search button{
+      padding: 8px;
+    }
+}
+
+@media only screen and (min-width: 1050px) {
+  .header h1{
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+
+  .header-img{
+   display: flex;
+   justify-content: center;
+  }
+  
+  .header-img img{
+    width: 50%;
+  }
+
+  .residents{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .location-info{
+  justify-content: space-around; 
+  }
+
+  .card-resident-info p{
+    color: hsl(180, 7%, 50%);
+    font-size: .9rem;
+  }
+
+  .search input{
+    width: 350px;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  .search button{
+    padding: 8px;
   }
 }

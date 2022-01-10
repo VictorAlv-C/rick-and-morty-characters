@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import ListResident from './components/ListResident'
+import Search from './components/Search';
+import Header from './components/Header';
+import {get} from 'axios';
 import './App.css';
 
-function App() {
+const App = ()=> {
+
+  const [location, setLocation] = useState({});
+
+  useEffect(() => { 
+    get(`https://rickandmortyapi.com/api/location/${getNumber()}`)
+    .then(({data}) => setLocation(data))
+    .catch(err => console.log(err))
+  },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Search setLocation={setLocation} />
+      <div className='location'>
+        <h2>{location.name}</h2>
+        <div className="location-info">
+          <p>Type:<br/> <b>{location.type}</b></p>
+          <p>Dimension: <br/> <b>{location.dimension}</b></p>
+          <p>Poblation:<br/> <b>{location.residents?.length}</b></p>
+        </div>
+      </div>
+      <ListResident residents={location.residents} />
     </div>
   );
 }
+
+const getNumber = () => Math.floor(Math.random() * 126) + 1;
 
 export default App;
