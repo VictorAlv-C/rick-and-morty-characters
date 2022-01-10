@@ -19,7 +19,7 @@ const ListResident = ({residents}) => {
             }       
         </div>
         {
-            residents?.length > 5 && (
+            residents?.length > 6 && (
                 <div className="pagination">
                     <button onClick={prevPage}>Prev</button>
                     <span>Pages</span>

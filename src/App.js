@@ -8,7 +8,7 @@ import './App.css';
 const App = ()=> {
 
   const [location, setLocation] = useState({});
-
+  
   useEffect(() => { 
     get(`https://rickandmortyapi.com/api/location/${getNumber()}`)
     .then(({data}) => setLocation(data))
@@ -27,7 +27,7 @@ const App = ()=> {
           <p>Poblation:<br/> <b>{location.residents?.length}</b></p>
         </div>
       </div>
-      <ListResident residents={location.residents} />
+      <ListResident residents={location.residents}  />
     </div>
   );
 }
